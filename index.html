@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>João Victor Moura</title>
+<meta name="description" content="Portfólio de João Victor de Moura Franca: desenvolvedor full stack em formação, com foco em IA e automação.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f5f0; --surface:#ffffff; --surface-2:#efece5; --text:#1b1a17; --muted:#5f5b52;
+  --line:#dfdad0; --accent:#c2410c; --accent-soft:#fbe7dc; --ok:#15803d; --wip:#b45309;
+  --radius:14px; --maxw:1080px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121110; --surface:#1b1a18; --surface-2:#24221f; --text:#f1eee8; --muted:#a39e94;
+    --line:#2f2c28; --accent:#fb923c; --accent-soft:#3a2416; --ok:#4ade80; --wip:#fbbf24;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121110; --surface:#1b1a18; --surface-2:#24221f; --text:#f1eee8; --muted:#a39e94;
+  --line:#2f2c28; --accent:#fb923c; --accent-soft:#3a2416; --ok:#4ade80; --wip:#fbbf24;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+@media(min-width:720px){.wrap{padding:0 32px}}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{font-family:"JetBrains Mono",monospace;font-weight:500;text-decoration:none;font-size:15px}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:14px;padding:6px 10px;border-radius:8px}
+.nav-links a:hover{color:var(--text);background:var(--surface-2)}
+.nav-links .hide-sm{display:none}
+@media(min-width:720px){.nav-links .hide-sm{display:inline-block}}
+.theme-btn{border:1px solid var(--line);background:var(--surface);color:var(--text);width:34px;height:34px;border-radius:8px;cursor:pointer;display:grid;place-items:center}
+
+/* hero */
+.hero{padding:72px 0 56px}
+@media(min-width:720px){.hero{padding:110px 0 80px}}
+.hero-grid{display:grid;gap:40px;align-items:center}
+@media(min-width:860px){.hero-grid{grid-template-columns:1fr 260px}}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 20%,transparent)}
+h1{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:clamp(38px,7vw,64px);line-height:1.05;letter-spacing:-.02em}
+h1 em{font-style:italic;color:var(--accent);font-weight:400}
+.lead{margin-top:22px;font-size:18px;color:var(--muted);max-width:620px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;text-decoration:none;font-weight:500;font-size:15px;border:1px solid var(--line);background:var(--surface)}
+.btn:hover{border-color:var(--text)}
+.btn.primary{background:var(--text);color:var(--bg);border-color:var(--text)}
+.btn.primary:hover{opacity:.88}
+.avatar{width:220px;height:220px;border-radius:24px;object-fit:cover;border:1px solid var(--line);background:var(--surface-2);justify-self:start}
+@media(min-width:860px){.avatar{justify-self:end;transform:rotate(2deg)}}
+
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:56px}
+@media(min-width:720px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--surface);padding:20px}
+.stat b{display:block;font-family:Fraunces,serif;font-size:28px;font-weight:600}
+.stat span{font-size:13px;color:var(--muted)}
+
+/* sections */
+section{padding:64px 0;border-top:1px solid var(--line)}
+.sec-head{display:flex;flex-direction:column;gap:6px;margin-bottom:32px}
+.sec-head .num{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--accent)}
+h2{font-family:Fraunces,serif;font-weight:600;font-size:clamp(28px,4vw,38px);letter-spacing:-.01em}
+.sec-head p{color:var(--muted);max-width:620px}
+
+/* projects */
+.projects{display:grid;gap:20px}
+@media(min-width:860px){.projects{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:color-mix(in srgb,var(--accent) 50%,var(--line));transform:translateY(-2px)}
+.card.feature{grid-column:1/-1}
+.card-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.card h3{font-size:20px;font-weight:600;line-height:1.3}
+.card .sub{font-size:14px;color:var(--muted);margin-top:2px}
+.badge{font-family:"JetBrains Mono",monospace;font-size:11px;padding:4px 8px;border-radius:999px;white-space:nowrap;border:1px solid currentColor}
+.badge.wip{color:var(--wip)} .badge.done{color:var(--ok)} .badge.ia{color:var(--accent)}
+.card p{color:var(--muted);font-size:15px}
+.card ul{list-style:none;display:grid;gap:6px;font-size:14px;color:var(--muted)}
+.card ul li{padding-left:18px;position:relative}
+.card ul li::before{content:"→";position:absolute;left:0;color:var(--accent)}
+@media(min-width:860px){.card.feature ul{grid-template-columns:1fr 1fr;column-gap:24px}}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:"JetBrains Mono",monospace;font-size:12px;background:var(--surface-2);padding:3px 9px;border-radius:6px}
+.card-links{display:flex;gap:16px;margin-top:auto;padding-top:6px;font-size:14px;flex-wrap:wrap}
+.card-links a{text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:6px}
+.card-links a:hover{color:var(--accent)}
+.card-links .meta{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:12px;align-self:center}
+
+.gh-extra{margin-top:28px}
+.gh-extra h4{font-size:14px;color:var(--muted);font-weight:500;margin-bottom:12px}
+.gh-list{display:grid;gap:10px}
+@media(min-width:720px){.gh-list{grid-template-columns:repeat(3,1fr)}}
+.gh-item{display:block;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px}
+.gh-item:hover{border-color:var(--text)}
+.gh-item b{font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:500;word-break:break-all}
+.gh-item small{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+
+/* experience */
+.timeline{display:grid;gap:0}
+.job{display:grid;gap:6px;padding:24px 0;border-bottom:1px dashed var(--line)}
+.job:last-child{border-bottom:0}
+@media(min-width:720px){.job{grid-template-columns:200px 1fr;gap:32px}}
+.job .when{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted);padding-top:3px}
+.job h3{font-size:18px;font-weight:600}
+.job h3 span{color:var(--muted);font-weight:400}
+.job ul{margin-top:8px;padding-left:18px;color:var(--muted);font-size:15px;display:grid;gap:4px}
+
+/* skills */
+.skills{display:grid;gap:16px}
+@media(min-width:720px){.skills{grid-template-columns:repeat(3,1fr)}}
+.skill-box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.skill-box h3{font-size:15px;font-weight:600;margin-bottom:12px}
+.edu{display:grid;gap:16px;margin-top:16px}
+@media(min-width:720px){.edu{grid-template-columns:repeat(2,1fr)}}
+.edu .skill-box p{color:var(--muted);font-size:15px}
+.edu .skill-box ul{list-style:none;color:var(--muted);font-size:15px;display:grid;gap:4px}
+
+/* contact */
+.contact{text-align:left}
+.contact-box{background:var(--text);color:var(--bg);border-radius:20px;padding:40px 24px}
+@media(min-width:720px){.contact-box{padding:56px}}
+.contact-box h2{color:var(--bg)}
+.contact-box p{opacity:.75;margin-top:12px;max-width:540px}
+.contact-box .cta .btn{background:transparent;color:var(--bg);border-color:color-mix(in srgb,var(--bg) 35%,transparent)}
+.contact-box .cta .btn.primary{background:var(--bg);color:var(--text)}
+footer{padding:32px 0 48px;color:var(--muted);font-size:13px;font-family:"JetBrains Mono",monospace}
+svg.i{width:16px;height:16px;flex:none}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#topo" class="logo">jvc<span>.</span>moura</a>
+    <nav class="nav-links">
+      <a href="#projetos">Projetos</a>
+      <a href="#experiencia" class="hide-sm">Experiência</a>
+      <a href="#skills" class="hide-sm">Skills</a>
+      <a href="#contato">Contato</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Alternar tema">
+        <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span>Aberto a estágio · AI Builder</div>
+          <h1>João Victor<br>de Moura Franca.<br><em>Código, dados e IA.</em></h1>
+          <p class="lead">Estudante de Análise e Desenvolvimento de Sistemas na UNIP (conclusão em dez/2026). Desenvolvo aplicações full stack com C# .NET, Python, Node.js e React Native, e uso IA no dia a dia para automatizar processos e transformar dados em decisões.</p>
+          <div class="cta">
+            <a class="btn primary" href="#projetos">Ver projetos
+              <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            <a class="btn" href="https://github.com/jvcmoura" target="_blank" rel="noopener">
+              <svg class="i" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>
+              github.com/jvcmoura</a>
+          </div>
+        </div>
+        <img class="avatar" src="https://avatars.githubusercontent.com/u/210618654?v=4" alt="Foto de perfil de João Victor" width="220" height="220">
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b>4+</b><span>sistemas full stack</span></div>
+        <div class="stat"><b>27</b><span>estados atendidos em análise diária</span></div>
+        <div class="stat"><b>n8n</b><span>automação com IA em produção</span></div>
+        <div class="stat"><b>2026</b><span>formatura em ADS · UNIP</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="projetos">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="num">01 / projetos</span>
+        <h2>O que eu construí</h2>
+        <p>Projetos acadêmicos e profissionais, do banco de dados ao app mobile. Os repositórios estão no meu GitHub.</p>
+      </div>
+
+      <div class="projects">
+        <article class="card feature reveal">
+          <div class="card-top">
+            <div>
+              <h3>Ultra Fit Academia: API + App Mobile</h3>
+              <div class="sub">PIM IV · UNIP · projeto individual</div>
+            </div>
+            <span class="badge wip">em andamento</span>
+          </div>
+          <p>Evolução do sistema de gestão de academia: uma API REST em C# com SQL Server, autenticação JWT com acesso por perfil e um aplicativo mobile em React Native (Expo), com ambiente em Docker.</p>
+          <ul>
+            <li>API REST em C# .NET com controle de acesso por perfil (JWT)</li>
+            <li>Banco SQL Server com procedures e triggers</li>
+            <li>App mobile em React Native com Expo</li>
+            <li>Docker Compose para subir o ambiente, mais diagramas de modelagem</li>
+          </ul>
+          <div class="tags"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">SQL Server</span><span class="tag">JWT</span><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Docker</span></div>
+          <div class="card-links">
+            <a href="https://github.com/jvcmoura/PIM2026-2SEMESTRE" target="_blank" rel="noopener">Ver código ↗</a>
+            <span class="meta" data-repo="PIM2026-2SEMESTRE"></span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <div>
+              <h3>Ultra Fit Academia: Sistema Web</h3>
+              <div class="sub">PIM III · UNIP · em grupo</div>
+            </div>
+            <span class="badge done">concluído</span>
+          </div>
+          <p>Sistema de gestão de academia com backend em .NET 8 e MongoDB, seguindo a arquitetura Controller → Service → Repository, e documentação via Swagger.</p>
+          <ul>
+            <li>Cadastro de alunos e professores, login e planos</li>
+            <li>Controle de pagamentos e inadimplentes</li>
+            <li>Check-in de presença e avaliação física</li>
+            <li>Painel administrativo com gráficos</li>
+          </ul>
+          <div class="tags"><span class="tag">C# .NET 8</span><span class="tag">MongoDB</span><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span></div>
+          <div class="card-links">
+            <a href="https://github.com/jvcmoura/PIM2026" target="_blank" rel="noopener">Ver código ↗</a>
+            <span class="meta" data-repo="PIM2026"></span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <div>
+              <h3>Sistema Acadêmico com IA</h3>
+              <div class="sub">PIM II · UNIP</div>
+            </div>
+            <span class="badge ia">IA</span>
+          </div>
+          <p>Plataforma acadêmica com áreas para aluno e professor e uma API em Python (FastAPI) que inclui um módulo de inteligência artificial e geração de relatórios.</p>
+          <ul>
+            <li>Rotas de turmas, aulas, atividades, notas e presença</li>
+            <li>Módulo de IA e relatórios acadêmicos</li>
+            <li>Rate limiting, CORS e migrações com Alembic</li>
+            <li>Portais separados para aluno e professor</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLAlchemy</span><span class="tag">Alembic</span><span class="tag">JavaScript</span></div>
+          <div class="card-links">
+            <a href="https://github.com/jvcmoura/PROJETOS" target="_blank" rel="noopener">Ver código ↗</a>
+            <span class="meta" data-repo="PROJETOS"></span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <div>
+              <h3>Automação de comprovantes com n8n</h3>
+              <div class="sub">Projeto profissional · IA e automação</div>
+            </div>
+            <span class="badge ia">automação</span>
+          </div>
+          <p>Fluxo no n8n que recebe comprovantes enviados por clientes (de endereço ou contrato de aluguel), extrai os dados e organiza tudo em planilha, sem trabalho manual.</p>
+          <ul>
+            <li>Extração de nome, endereço, data de emissão e de vencimento</li>
+            <li>Registro automático em planilha</li>
+            <li>Comprovantes com mais de 3 meses devolvidos ao cliente com aviso</li>
+          </ul>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">IA</span><span class="tag">Planilhas</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <div>
+              <h3>Análise de pedidos com IA</h3>
+              <div class="sub">CSU Digital · dados</div>
+            </div>
+            <span class="badge ia">dados</span>
+          </div>
+          <p>Ao fim de cada dia, usava o Claude para transformar a planilha de pedidos de clientes de todo o Brasil em gráficos e mapas por região.</p>
+          <ul>
+            <li>Visão de aprovações, rejeições e encaminhamentos por região</li>
+            <li>Relatórios diários a partir de planilhas</li>
+          </ul>
+          <div class="tags"><span class="tag">Claude</span><span class="tag">Excel</span><span class="tag">Power BI</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-top">
+            <div>
+              <h3>Sistema de Cadastro de Clientes</h3>
+              <div class="sub">Projeto pessoal</div>
+            </div>
+            <span class="badge done">concluído</span>
+          </div>
+          <p>CRUD completo de clientes com autenticação JWT, API em Node.js e Express e banco MySQL.</p>
+          <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL</span><span class="tag">JWT</span></div>
+        </article>
+      </div>
+
+      <div class="gh-extra reveal" id="ghExtra" hidden>
+        <h4>Mais repositórios no GitHub</h4>
+        <div class="gh-list" id="ghList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="num">02 / experiência</span>
+        <h2>Onde trabalhei</h2>
+      </div>
+      <div class="timeline">
+        <div class="job reveal">
+          <div class="when">jan/2026 – nov/2026</div>
+          <div>
+            <h3>CSU Digital <span>· Cadastro de produtos, vendas e atendimento N1</span></h3>
+            <ul>
+              <li>Analisei diariamente pedidos de clientes de todos os estados do Brasil, decidindo entre aprovar, rejeitar ou encaminhar para análise de outra área.</li>
+              <li>Mantive planilhas diárias de controle dos pedidos e produzi análises por região com apoio de IA.</li>
+              <li>Atuei no cadastro de produtos, em vendas e no atendimento N1.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job reveal">
+          <div class="when">mai/2025 – dez/2025</div>
+          <div>
+            <h3>Grupo Fleury S.A. <span>· Recepcionista e Assistente Administrativo</span></h3>
+            <ul><li>Atendimento ao público e suporte administrativo.</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="num">03 / skills</span>
+        <h2>Tecnologias e formação</h2>
+      </div>
+      <div class="skills">
+        <div class="skill-box reveal">
+          <h3>Backend e dados</h3>
+          <div class="tags"><span class="tag">C# .NET</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">SQL Server</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">JWT</span></div>
+        </div>
+        <div class="skill-box reveal">
+          <h3>Frontend e mobile</h3>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">React Native</span><span class="tag">Expo</span></div>
+        </div>
+        <div class="skill-box reveal">
+          <h3>IA, automação e análise</h3>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Claude</span><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">Docker</span></div>
+        </div>
+      </div>
+      <div class="edu">
+        <div class="skill-box reveal">
+          <h3>Formação</h3>
+          <ul>
+            <li><strong>Análise e Desenvolvimento de Sistemas</strong>, UNIP · 2024 – dez/2026</li>
+            <li>Ensino Médio, E.E. Ivani Maria Paes · 2024</li>
+          </ul>
+        </div>
+        <div class="skill-box reveal">
+          <h3>Cursos e idiomas</h3>
+          <ul>
+            <li>JavaScript (40h) · Python para Automação de Dados (8h) · Power BI para Análise de Dados (8h)</li>
+            <li>Português nativo · Inglês intermediário</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contact">
+    <div class="wrap">
+      <div class="contact-box reveal">
+        <h2>Vamos conversar?</h2>
+        <p>Estou buscando estágio em desenvolvimento e IA. Se meu trabalho combina com o que vocês fazem, me mande uma mensagem.</p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:mourafrancajoaovictor@gmail.com">
+            <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            mourafrancajoaovictor@gmail.com</a>
+          <a class="btn" href="https://github.com/jvcmoura" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year">2026</span> João Victor de Moura Franca · Carapicuíba, SP</div>
+</footer>
+
+<script>
+(function(){
+  // tema
+  var root = document.documentElement, btn = document.getElementById('themeBtn');
+  try { var saved = localStorage.getItem('theme'); if (saved) root.setAttribute('data-theme', saved); } catch(e){}
+  btn.addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch(e){}
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // animação ao rolar
+  var els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: .1 });
+    els.forEach(function(el){ io.observe(el); });
+  } else { els.forEach(function(el){ el.classList.add('in'); }); }
+
+  // dados ao vivo do GitHub: linguagem e data de atualização + novos repositórios
+  var featured = ['PIM2026-2SEMESTRE','PIM2026','PROJETOS'];
+  fetch('https://api.github.com/users/jvcmoura/repos?per_page=100&sort=updated')
+    .then(function(r){ return r.ok ? r.json() : []; })
+    .then(function(repos){
+      if (!Array.isArray(repos)) return;
+      repos.forEach(function(r){
+        var el = document.querySelector('[data-repo="' + r.name + '"]');
+        if (el) {
+          var d = new Date(r.updated_at).toLocaleDateString('pt-BR', { month:'short', year:'numeric' });
+          el.textContent = (r.language ? r.language + ' · ' : '') + 'atualizado ' + d;
+        }
+      });
+      var extra = repos.filter(function(r){ return !r.fork && featured.indexOf(r.name) === -1; });
+      if (!extra.length) return;
+      var list = document.getElementById('ghList');
+      extra.slice(0, 6).forEach(function(r){
+        var a = document.createElement('a');
+        a.className = 'gh-item'; a.href = r.html_url; a.target = '_blank'; a.rel = 'noopener';
+        var b = document.createElement('b'); b.textContent = r.name;
+        var s = document.createElement('small'); s.textContent = (r.description || 'Sem descrição') + (r.language ? ' · ' + r.language : '');
+        a.appendChild(b); a.appendChild(s); list.appendChild(a);
+      });
+      document.getElementById('ghExtra').hidden = false;
+      document.getElementById('ghExtra').classList.add('in');
+    })
+    .catch(function(){});
+})();
+</script>
+</body>
+</html>
