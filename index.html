@@ -381,6 +381,10 @@ main,footer{position:relative;z-index:1}
             <li>Comprovantes com mais de 3 meses devolvidos ao cliente com aviso</li>
           </ul>
           <div class="tags"><span class="tag">n8n</span><span class="tag">IA</span><span class="tag">Planilhas</span></div>
+          <div class="card-links">
+            <a href="https://github.com/jvcmoura/n8n-comprovantes" target="_blank" rel="noopener">Ver código ↗</a>
+            <span class="meta" data-repo="n8n-comprovantes"></span>
+          </div>
         </article>
 
         <article class="card reveal">
@@ -935,7 +939,7 @@ main,footer{position:relative;z-index:1}
   if (!reduced) requestAnimationFrame(loop);
 
   // dados ao vivo do GitHub: linguagem e data de atualização + novos repositórios
-  var featured = ['PIM2026-2SEMESTRE','PIM2026','PROJETOS'];
+  var featured = ['PIM2026-2SEMESTRE','PIM2026','PROJETOS','n8n-comprovantes'];
   fetch('https://api.github.com/users/jvcmoura/repos?per_page=100&sort=updated')
     .then(function(r){ return r.ok ? r.json() : []; })
     .then(function(repos){
